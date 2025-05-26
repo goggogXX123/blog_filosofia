@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #da5fd5, #d74cd7);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            transition: background 2s ease-in-out;
+        }
+
+        .header, .menu, .contenido {
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .contenido {
+            padding: 50px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #ffeb3b;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
+        }
+
+        .info {
+            display: none;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .grid-container img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-container p {
+            font-size: 18px;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
+        }
+
+        .grid-container1 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .content-box {
+            width: 30%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .content-box img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-box p {
+            font-size: 18px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
+            text-align: justify;
+        }
+
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .column {
+            width: 30%;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .left {
+            background: #2e004f;
+        }
+
+        .center {
+            background: #4b0082;
+        }
+
+        .right {
+            background: #8a2be2;
+        }
+
+        .column img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .column p {
+            font-size: 18px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
+            text-align: justify;
+        }
+
+
+        .content-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .content-container img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-container p {
+            font-size: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
+            text-align: justify;
+        }
+
+
+                .social-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .social-container p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button img {
+            width: 30px;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
+        }
+
+        .facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .youtube {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .instagram {
+            background: linear-gradient(to right, #feda75, #d62976, #962fbf);
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>¡Bienvenido a Mi Blog!</h1>
+        <h2 >Descubre el mundo de Simone de Beauvoir</h2>
+        <h3>Explora su historia, ideas y legado.</h3>
+    </header>
+
+    <section id="inicio" class="contenido">
+        <h2>Bienvenidos a nuestro blog dedicado a una de las figuras más influyentes del siglo XX</h2>
+        <p>Simonede Beauvoir.</p>
+        <p> En este espacio exploraremos su vida, sus obras y su impacto en el mundo literario
+y filosófico, así como su legado en el movimiento feminista.
+</p>
+        <button class="btn" id="verMas">Ver más</button>
+    </section>
+
+    <section id="info-principal" class="info">
+        <div class="grid-container">
+            <img src="https://i.pinimg.com/originals/82/b8/89/82b889ad8a43c7616f7a21178de17f26.png" alt="1">
+            <p>Simone de Beauvoir nació el 9 de enero de 1908, y murió el 14 de Abril de 1986 en París, Francia.</p>
+        </div>
+
+        <div class="grid-container">
+            <p>Desde joven mostró un interés excepcional por la literatura y la filosofía, lo que la llevó a
+estudiar en la Sorbona, donde se graduó en 1929. Durante su época universitaria, conoció a
+Jean-Paul Sartre, con quien mantendría una relación personal e intelectual a lo largo de su vida.</p>
+            <img src="https://cdn.unotv.com/images/2023/04/simone-de-beauvoir-portada-141249.jpg" alt="2">
+        </div>
+
+        <div class="grid-container">
+            <img src="https://esdotluminousvibesdotcom.files.wordpress.com/2022/12/image-1.jpeg?w=1200" alt="3">
+            <p>De Beauvoir es conocida principalmente por su obra El segundo sexo, publicada en 1949. Este
+libro es una de las primeras obras que analiza la opresión de las mujeres a través de una
+perspectiva filosófica y existencialista. En él, de Beauvoir acuñó la famosa frase: “No se nace
+mujer: se llega a serlo”, desafiando las normas sociales y culturales de su tiempo.
+</p>
+        </div>
+    </section>
+
+    <section id="info-extra" class="info">
+        <div class="grid-container1">
+            <div class="content-box">
+                <img src="https://pymstatic.com/55105/conversions/simone-beauvoir-small-16_9.jpg" alt="4">
+                <p>Simone de Beauvoir fue una pionera del feminismo moderno. Su obra ha influido en
+generaciones de mujeres que buscan igualdad de género y justicia social. El segundo sexo no solo
+proporcionó una base teórica para el feminismo, sino que también inspiró movimientos y
+debates en todo el mundo.
+</p>
+            </div>
+
+            <div class="content-box">
+                <img src="https://api.time.com/wp-content/uploads/2020/03/women-of-the-year-1949-SimonedeBeauvoir-secondary.jpg?quality=85&w=2400" alt="5">
+                <p>Además de su trabajo como escritora y filósofa, de Beauvoir fue una activista comprometida.
+Participó en numerosas protestas y causas a favor de los derechos de las mujeres, incluyendo el
+derecho al aborto y la igualdad de oportunidades en el ámbito laboral y educativo.
+</p>
+            </div>
+
+            <div class="content-box">
+                <img src="https://vidasilustres.net/wp-content/uploads/simone-obra-arte-moderna.webp" alt="6">
+                <p>El legado de Simone de Beauvoir es vasto y sigue resonando en la actualidad. Su enfoque crítico
+hacia las estructuras patriarcales y su defensa de la libertad individual han dejado una marca
+indeleble en la historia del pensamiento feminista. Hoy en día, su obra sigue siendo estudiada y
+valorada por su capacidad para desafiar las convenciones y su llamado a la acción por un
+mundo más justo.
+</p>
+            </div>
+        </div>
+    </section>
+
+
+<section id="info-final" class="info">
+    <div class="container">
+        <div class="column left">
+            <p>Libros Destacados de Simone de Beauvoir:</p>
+<p>El segundo sexo (1949)</p>
+<p>Memorias de una joven formal (1958)</p>
+<p>La fuerza de las cosas (1963)</p>
+<p>La mujer rota (1967)</p>
+            <img src="https://elfeminismo.com/wp-content/uploads/2021/05/libros-de-simone-de-beauvoir-todas-sus-obras-300x177.jpg" alt="8">
+            <p>.</p>
+            <img src="https://todo-frases.com/wp-content/uploads/10-frases-inspiradoras-de-simone-de-beauvoir-que-te-haran-reflexionar-sobre-la-vida.jpg" alt="7">
+            <p>Citas Inspiradoras:</p>
+<p>“No se nace mujer: se llega a serlo.”</p>
+<p>“El día que una mujer pueda amar con su fuerza y no con su debilidad, no para huir de sí
+misma, sino para encontrarse, no para renunciar, sino para afirmarse, entonces el amor
+será para ella, como para el hombre, fuente de vida.”</p>
+
+        </div>
+
+        <div class="column center">
+            <img src="https://cdn.unitycms.io/image/ocroped/2001,2000,1000,1000,0,0/bYphbM3sy1c/2MO0HTkO4O09EXBCB2l4pQ.jpg" alt="9">
+            <p>Simone de Beauvoir (1908-1986) fue una filósofa, escritora y
+                 feminista francesa, reconocida por su obra "El segundo sexo" (1949), don
+                 de examina la condición de la mujer en la sociedad, convirtiéndose en un texto fund
+                 amental del feminismo moderno. Como figura clave del existencialismo, abordó temas como la lib
+                 ertad y la responsabilidad.</p>
+            <p>Su relación con Jean-Paul Sartre fue significativa, 
+                colaborando en diversas iniciativas. Además de filosofía, Beauvoir escribió
+                 novelas y ensayos sobre amor, opresión e identidad, dejando un legado relevante en
+                  debates contemporáneos sobre género y ética.</p>
+            <img src="https://th.bing.com/th/id/OIP.rHt6gVKi67lB_5pMs44lUQHaHa?cb=iwp2&rs=1&pid=ImgDetMain" alt="10">
+        </div>
+
+        <div class="column right">
+            <p>Beauvoir, al igual que otros existencialistas, argumenta que los seres humanos no tienen un
+                 propósito o esencia predeterminada; cada persona debe crear su propia esencia a través de sus elecciones y 
+                 acciones, lo que implica una gran libertad. Sin embargo, esta libertad está condicionada por factores sociales, 
+                 culturales y económicos, y las mujeres han sido históricamente privadas de ella por normas patriarcales.</p>
+            <p>En "El segundo sexo", Beauvoir sostiene que las mujeres deben luchar por su libertad y autonomía, desafiando las expectativas sociales que las limitan, ya que la verdadera 
+                libertad implica cuestionar y resistir las estructuras opresivas.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="info-otrofinal" class="info">
+    <div class="content-container">
+        <p>
+            Gracias por acompañarnos en este viaje a través de la vida y obra de Simone de Beauvoir.
+Esperamos que este blog haya despertado tu interés por descubrir más sobre esta increíble
+mujer y su legado. No dudes en dejar tus comentarios o compartir este post con quienes
+puedan estar interesados.
+        </p>
+        <p>Integrantes:
+<p>-Marina Sánchez Degante</p> <p>-Luis Daniel</p>
+<p>Rodríguez Rodríguez</p> <p>-Guillermo Sánchez
+Escobar</p> <p>-Alejandro Zamora Pérez</p> <p>-Abigail
+Serrano Flores</p>
+    </div>
+</section>
+
+<section id="info-redes" class="info">
+
+    <div class="social-container">
+        <p>Si quieres saber más sobre el tema, visita estas redes sociales para aprender más:</p>
+
+        <div class="buttons">
+            <a href="https://www.facebook.com/ILSB.AC" class="button facebook">
+                <img src="face.webp" alt="Facebook"> Facebook
+            </a>
+            <a href="https://www.youtube.com/watch?v=4pmhN_XRxL4" class="button youtube">
+                <img src="youtube.jpg" alt="YouTube"> YouTube
+            </a>
+            <a href="https://www.instagram.com/clubdefundraising/p/DE3Gku7ROcm/" class="button instagram">
+                <img src="insta.jpg" alt="Instagram"> Instagram
+            </a>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+    <script>
+    document.getElementById("verMas").addEventListener("click", function() {
+        let elementosOcultar = document.querySelectorAll(".header, .menu, .contenido");
+
+        elementosOcultar.forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(-50px)";
+        });
+
+        setTimeout(() => {
+            elementosOcultar.forEach(el => {
+                el.style.display = "none";
+            });
+
+            document.body.style.background = "linear-gradient(to right, #4b0082, #8a2be2)";
+
+            let infoSection1 = document.getElementById("info-principal");
+            let infoSection2 = document.getElementById("info-extra");
+            let infoSection3 = document.getElementById("info-final"); 
+            let infoSection4 = document.getElementById("info-otrofinal");
+            let infoSection5 = document.getElementById("info-redes");
+
+            infoSection1.style.display = "block";
+            infoSection2.style.display = "block";
+            infoSection3.style.display = "block";
+            infoSection4.style.display = "block";
+            infoSection5.style.display = "block";  
+
+            setTimeout(() => {
+                infoSection1.style.opacity = "1";
+                infoSection1.style.transform = "translateY(0)";
+                
+                infoSection2.style.opacity = "1";
+                infoSection2.style.transform = "translateY(0)";
+
+                infoSection3.style.opacity = "1"; 
+                infoSection3.style.transform = "translateY(0)";
+
+                infoSection4.style.opacity = "1"; 
+                infoSection4.style.transform = "translateY(0)";
+
+                infoSection5.style.opacity = "1"; 
+                infoSection5.style.transform = "translateY(0)";
+            }, 200);
+        }, 1200);
+    });
+</script>
+
+</body>
+</html>
